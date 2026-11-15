@@ -1,0 +1,65 @@
+﻿name: daily-gex
+
+on:
+  schedule:
+    # GitHub cron 用 UTC 且不跟随夏令时。
+    # ET 15:55 = UTC 20:55（冬令时）/ 19:55（夏令时）。两个都排，脚本内含窗口闸门。
+    - cron: '55 19 * * 1-5'
+    - cron: '55 20 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '忽略时间闸门，立即采集（测试用）'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install CJK font
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
+
+      - name: Install deps
+        run: pip install --quiet pillow
+
+      - name: Collect GEX
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            echo "手动触发：忽略时间闸门"
+            python gex_multi.py --symbols SPY,QQQ,SOXX,SOXL,VXX,UVIX
+          else
+            python gex_multi.py --symbols SPY,QQQ,SOXX,SOXL,VXX,UVIX --require-window
+          fi
+
+      - name: Daily volatility & gamma report
+        run: python daily_report.py
+
+      - name: Collect multi-symbol GEX snapshot
+        run: python gex_multi.py --symbols SPY,QQQ,SMH,SOXX,SOXL,VXX,VIXY,UVIX
+
+      - name: Build legacy report
+        run: python gex_report.py
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "没有新数据（可能是时间闸门跳过，或抓取失败）"
+          else
+            git commit -m "data: GEX snapshot $(date -u +%Y-%m-%d)"
+            git push
+          fi
+

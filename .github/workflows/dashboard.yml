@@ -1,0 +1,52 @@
+name: daily-dashboard
+
+on:
+  schedule:
+    # 每天采集。GitHub cron 用 UTC，不跟随夏令时。
+    # ET 16:10（收盘后） = UTC 21:10 冬令时 / 20:10 夏令时
+    # ET 09:00（盘前）   = UTC 14:00 冬令时 / 13:00 夏令时
+    - cron: '10 21 * * 1-5'     # 收盘后
+    - cron: '0 14 * * 1-5'      # 盘前
+  workflow_dispatch:
+    inputs:
+      skip_gex:
+        description: '跳过 CBOE GEX 采集（更快）'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install --quiet pandas numpy scipy
+
+      - name: Build dashboard (cloud)
+        run: |
+          if [ "${{ inputs.skip_gex }}" = "true" ]; then
+            python run/dashboard_cloud.py --no-gex
+          else
+            python run/dashboard_cloud.py
+          fi
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/ data/gex_history.csv 2>/dev/null || git add -A
+          if git diff --cached --quiet; then
+            echo "没有新数据"
+          else
+            git commit -m "dashboard: $(date -u +%Y-%m-%d)"
+            git push
+          fi

@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'>
+<title>每日波动率报告</title>
+<style>body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;
+max-width:1100px;margin:24px auto;padding:0 16px;line-height:1.7;color:#222}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid #ddd;padding:6px 10px;text-align:left}
+th{background:#f5f5f5}code{background:#f5f5f5;padding:2px 5px;border-radius:3px}
+h2{border-bottom:2px solid #eee;padding-bottom:6px;margin-top:32px}
+h3{color:#0a58ca;margin-top:24px}</style></head><body>
+<h1>每日波动率 & Gamma 结构报告</h1>
+<p>**2026-11-13**  ·  生成 17:06 (本地)  ·  数据源 CBOE（延迟 15 分钟）</p>
+<hr>
+<h2>一、市场概览</h2>
+<table>
+<tr><th>标的</th><th>现货</th><th>0DTE GEX(M)</th><th>Gamma Flip</th><th>Call 墙</th><th>Put 墙</th><th>最大负 gamma</th><th>ATM IV</th></tr>
+<tr><td>**SPY**</td><td>758.04</td><td>-1641</td><td>—</td><td>765.0</td><td>754.0</td><td>760 (-826M)</td><td>18%</td></tr>
+<tr><td>**QQQ**</td><td>689.52</td><td>-152</td><td>—</td><td>696.0</td><td>689.0</td><td>685 (-270M)</td><td>31%</td></tr>
+<tr><td>**SMH**</td><td>503.30</td><td>-66</td><td>—</td><td>517.5</td><td>495.0</td><td>475 (-31M)</td><td>59%</td></tr>
+<tr><td>**SOXX**</td><td>155.51</td><td>+2</td><td>170.0</td><td>160.0</td><td>155.0</td><td>153 (-15M)</td><td>66%</td></tr>
+<tr><td>**VXX**</td><td>18.27</td><td>+0</td><td>12.0</td><td>18.5</td><td>18.0</td><td>17 (-0M)</td><td>90%</td></tr>
+<tr><td>**SVIX**</td><td>23.62</td><td>+0</td><td>22.0</td><td>24.0</td><td>23.0</td><td>24 (-0M)</td><td>94%</td></tr>
+<tr><td>**UVXY**</td><td>17.32</td><td>+1</td><td>10.0</td><td>17.5</td><td>17.0</td><td>16 (-0M)</td><td>144%</td></tr>
+<tr><td>**VIXY**</td><td>17.49</td><td>+0</td><td>13.0</td><td>18.0</td><td>17.0</td><td>17 (-0M)</td><td>0%</td></tr>
+</table>
+<h2>二、核心标的攻防结构</h2>
+<h3>SPY  ·  现货 758.04</h3>
+<table>
+<tr><th>到期</th><th>DTE</th><th>总 GEX(M)</th><th>Flip</th><th>Call 墙</th><th>Put 墙</th><th>最大负 gamma</th><th>ATM IV</th></tr>
+<tr><td>2026-11-13</td><td>0</td><td>-1641</td><td>—</td><td>765.0</td><td>754.0</td><td>760 (-826M)</td><td>18%</td></tr>
+<tr><td>2026-11-16</td><td>3</td><td>-322</td><td>—</td><td>770.0</td><td>753.0</td><td>763 (-414M)</td><td>13%</td></tr>
+<tr><td>2026-11-17</td><td>4</td><td>+54</td><td>770.0</td><td>765.0</td><td>753.0</td><td>750 (-21M)</td><td>14%</td></tr>
+<tr><td>2026-11-18</td><td>5</td><td>+9</td><td>778.0</td><td>764.0</td><td>758.0</td><td>740 (-51M)</td><td>15%</td></tr>
+<tr><td>2026-11-19</td><td>6</td><td>+59</td><td>769.0</td><td>761.0</td><td>750.0</td><td>755 (-12M)</td><td>15%</td></tr>
+<tr><td>2026-11-20</td><td>7</td><td>-3486</td><td>—</td><td>775.0</td><td>749.0</td><td>750 (-456M)</td><td>15%</td></tr>
+</table>
+<li>**体制**：负 GEX（波动放大，做市商追涨杀跌）</li>
+<li>**无 flip**（全区间负 gamma），现价 758.04 已在负 gamma 区</li>
+<li>**最危险位置**：760 有 -826M 负 gamma</li>
+<li>**上方阻力**：765（Call 墙）</li>
+<li>**下方支撑**：754（Put 墙）</li>
+<h3>QQQ  ·  现货 689.52</h3>
+<table>
+<tr><th>到期</th><th>DTE</th><th>总 GEX(M)</th><th>Flip</th><th>Call 墙</th><th>Put 墙</th><th>最大负 gamma</th><th>ATM IV</th></tr>
+<tr><td>2026-11-13</td><td>0</td><td>-152</td><td>—</td><td>696.0</td><td>689.0</td><td>685 (-270M)</td><td>31%</td></tr>
+<tr><td>2026-11-16</td><td>3</td><td>+110</td><td>700.0</td><td>700.0</td><td>689.0</td><td>680 (-8M)</td><td>22%</td></tr>
+<tr><td>2026-11-17</td><td>4</td><td>+130</td><td>700.0</td><td>707.0</td><td>684.0</td><td>665 (-2M)</td><td>25%</td></tr>
+<tr><td>2026-11-18</td><td>5</td><td>-8</td><td>—</td><td>700.0</td><td>678.0</td><td>670 (-9M)</td><td>26%</td></tr>
+<tr><td>2026-11-19</td><td>6</td><td>+29</td><td>690.0</td><td>700.0</td><td>680.0</td><td>693 (-2M)</td><td>27%</td></tr>
+<tr><td>2026-11-20</td><td>7</td><td>-948</td><td>—</td><td>695.0</td><td>683.0</td><td>680 (-327M)</td><td>28%</td></tr>
+</table>
+<li>**体制**：负 GEX（波动放大，做市商追涨杀跌）</li>
+<li>**无 flip**（全区间负 gamma），现价 689.52 已在负 gamma 区</li>
+<li>**最危险位置**：685 有 -270M 负 gamma</li>
+<li>**上方阻力**：696（Call 墙）</li>
+<li>**下方支撑**：689（Put 墙）</li>
+<h3>SMH  ·  现货 503.30</h3>
+<table>
+<tr><th>到期</th><th>DTE</th><th>总 GEX(M)</th><th>Flip</th><th>Call 墙</th><th>Put 墙</th><th>最大负 gamma</th><th>ATM IV</th></tr>
+<tr><td>2026-11-13</td><td>0</td><td>-66</td><td>—</td><td>517.5</td><td>495.0</td><td>475 (-31M)</td><td>59%</td></tr>
+<tr><td>2026-11-16</td><td>3</td><td>+8</td><td>530.0</td><td>520.0</td><td>500.0</td><td>488 (-1M)</td><td>44%</td></tr>
+<tr><td>2026-11-18</td><td>5</td><td>+9</td><td>500.0</td><td>520.0</td><td>500.0</td><td>490 (-1M)</td><td>52%</td></tr>
+<tr><td>2026-11-20</td><td>7</td><td>-101</td><td>—</td><td>510.0</td><td>495.0</td><td>530 (-16M)</td><td>54%</td></tr>
+<tr><td>2026-11-23</td><td>10</td><td>-0</td><td>—</td><td>520.0</td><td>487.5</td><td>490 (-0M)</td><td>48%</td></tr>
+<tr><td>2026-11-25</td><td>12</td><td>+0</td><td>500.0</td><td>505.0</td><td>500.0</td><td>495 (-0M)</td><td>49%</td></tr>
+</table>
+<li>**体制**：负 GEX（波动放大，做市商追涨杀跌）</li>
+<li>**无 flip**（全区间负 gamma），现价 503.30 已在负 gamma 区</li>
+<li>**最危险位置**：475 有 -31M 负 gamma</li>
+<li>**上方阻力**：518（Call 墙）</li>
+<li>**下方支撑**：495（Put 墙）</li>
+<h3>SOXX  ·  现货 155.51</h3>
+<table>
+<tr><th>到期</th><th>DTE</th><th>总 GEX(M)</th><th>Flip</th><th>Call 墙</th><th>Put 墙</th><th>最大负 gamma</th><th>ATM IV</th></tr>
+<tr><td>2026-11-13</td><td>0</td><td>+2</td><td>170.0</td><td>160.0</td><td>155.0</td><td>153 (-15M)</td><td>66%</td></tr>
+<tr><td>2026-11-20</td><td>7</td><td>-24</td><td>—</td><td>160.0</td><td>155.0</td><td>150 (-10M)</td><td>58%</td></tr>
+<tr><td>2026-11-27</td><td>14</td><td>+2</td><td>161.67</td><td>161.67</td><td>153.33</td><td>163 (-2M)</td><td>53%</td></tr>
+<tr><td>2026-12-04</td><td>21</td><td>+0</td><td>100.0</td><td>160.0</td><td>153.33</td><td>167 (-1M)</td><td>52%</td></tr>
+<tr><td>2026-12-11</td><td>28</td><td>+0</td><td>100.0</td><td>156.67</td><td>155.0</td><td>140 (-0M)</td><td>51%</td></tr>
+<tr><td>2026-12-18</td><td>35</td><td>+22</td><td>170.0</td><td>161.67</td><td>155.0</td><td>150 (-7M)</td><td>49%</td></tr>
+</table>
+<li>**体制**：正 GEX（波动收敛，做市商均值回归）</li>
+<li>**Gamma Flip**：170.0 （跌破则进入负 gamma 区）</li>
+<li>**最危险位置**：153 有 -15M 负 gamma</li>
+<li>**上方阻力**：160（Call 墙）</li>
+<li>**下方支撑**：155（Put 墙）</li>
+<h2>三、成交量分析（近 7 日到期）</h2>
+<table>
+<tr><th>标的</th><th>Call 量</th><th>Put 量</th><th>P/C</th><th>最活跃行权价</th></tr>
+<tr><td>**SPY**</td><td>1,196,883</td><td>1,444,166</td><td>1.21</td><td>760(183,081), 758(138,240), 757(126,809), 755(115,500)</td></tr>
+<tr><td>**QQQ**</td><td>692,391</td><td>1,001,850</td><td>1.45</td><td>690(109,132), 680(101,241), 700(91,925), 685(80,415)</td></tr>
+<tr><td>**SMH**</td><td>39,288</td><td>133,611</td><td>3.40</td><td>340(20,411), 475(16,924), 630(14,893), 500(9,461)</td></tr>
+<tr><td>**SOXX**</td><td>21,665</td><td>33,852</td><td>1.56</td><td>145(8,807), 150(6,323), 167(5,857), 160(4,971)</td></tr>
+<tr><td>**VXX**</td><td>26,413</td><td>9,688</td><td>0.37</td><td>18(10,789), 17(7,008), 19(3,911), 20(3,631)</td></tr>
+<tr><td>**SVIX**</td><td>1,171</td><td>1,644</td><td>1.40</td><td>24(749), 24(440), 26(315), 25(227)</td></tr>
+<tr><td>**UVXY**</td><td>27,218</td><td>10,167</td><td>0.37</td><td>18(8,173), 17(7,703), 16(3,239), 20(3,177)</td></tr>
+<tr><td>**VIXY**</td><td>554</td><td>41</td><td>0.07</td><td>18(321), 17(185), 20(33), 16(18)</td></tr>
+</table>
+<p>> P/C > 1.2 偏空（put 活跃）；< 0.6 偏多（call 活跃）</p>
+<h2>四、波动率结构</h2>
+<table>
+<tr><th>标的</th><th>0DTE IV</th><th>近月 IV</th><th>远月 IV</th><th>期限结构</th></tr>
+<tr><td>**SPY**</td><td>17.7%</td><td>12.8%</td><td>14.4%</td><td>正挂(远月高)</td></tr>
+<tr><td>**QQQ**</td><td>30.5%</td><td>22.3%</td><td>23.7%</td><td>正挂(远月高)</td></tr>
+<tr><td>**SMH**</td><td>58.6%</td><td>43.6%</td><td>44.2%</td><td>平坦</td></tr>
+<tr><td>**SOXX**</td><td>66.2%</td><td>58.1%</td><td>48.8%</td><td>倒挂(近月高)</td></tr>
+<tr><td>**VXX**</td><td>89.6%</td><td>74.6%</td><td>74.0%</td><td>平坦</td></tr>
+<tr><td>**SVIX**</td><td>94.1%</td><td>66.2%</td><td>66.1%</td><td>平坦</td></tr>
+<tr><td>**UVXY**</td><td>144.3%</td><td>111.8%</td><td>110.8%</td><td>平坦</td></tr>
+<tr><td>VIXY</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+<h2>五、衍生品跟随（VIX 家族）</h2>
+<table>
+<tr><th>标的</th><th>现货</th><th>0DTE GEX</th><th>Put/Call 量</th><th>ATM IV</th></tr>
+<tr><td>**VXX**</td><td>18.27</td><td>+0</td><td>0.37</td><td>90%</td></tr>
+<tr><td>**SVIX**</td><td>23.62</td><td>+0</td><td>1.40</td><td>94%</td></tr>
+<tr><td>**UVXY**</td><td>17.32</td><td>+1</td><td>0.37</td><td>144%</td></tr>
+<tr><td>**VIXY**</td><td>17.49</td><td>+0</td><td>0.07</td><td>—</td></tr>
+</table>
+<h3>交叉验证（VXX vs SVIX）</h3>
+<li>**VXX P/C**：0.37（call 活跃 → 看涨波动率）</li>
+<li>**SVIX P/C**：1.40（put 活跃 → 看跌 SVIX → 看涨波动率）</li>
+<li>**✅ 两个信号一致：市场预期波动率上升**</li>
+<p>> 说明：VXX 做多 VIX 期货，SVIX 做空 VIX 期货。两者期权流向应相反。</p>
+<p>> 注意：SVIX/VXX 的期权 OI 较小，GEX 意义不大，重点看 P/C 和 IV。</p>
+<h2>六、交易信号</h2>
+<li>**SPY**（758.04）：🔴 强负 GEX · 现价在最大负 gamma(760)下方 → 加速风险 · P/C 1.21 偏空</li>
+<li>**QQQ**（689.52）：🟠 负 GEX · P/C 1.45 偏空</li>
+<li>**SMH**（503.30）：🟠 负 GEX · P/C 3.40 偏空</li>
+<li>**SOXX**（155.51）：🟡 弱正 GEX · P/C 1.56 偏空</li>
+<h2>七、风险提示</h2>
+<li>**OI 是 T-1 的**：GEX = 昨日持仓 × 今日价格，盘中持仓变化不反映</li>
+<li>**GEX 符号是假设**：假定做市商持有 call 多头、put 空头，未经验证</li>
+<li>**CBOE 延迟 15 分钟**：不适合高频交易</li>
+<li>**负 GEX 不等于必跌**：只代表波动放大，方向仍看其他因素</li>
+<li>**Gamma 墙会移动**：盘中价格变化会改变墙位，需实时重算</li>
+<hr>
+<p>*数据源：CBOE 延迟报价 · 生成于 2026-11-13 17:06:17*</p>
+</body></html>

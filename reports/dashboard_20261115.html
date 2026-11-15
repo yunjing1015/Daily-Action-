@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'>
+<title>量化看板 2026-11-15</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+     margin:0;padding:24px;background:#f7f8fa;color:#1a1a1a;line-height:1.5}
+.wrap{max-width:1500px;margin:0 auto}
+h1{font-size:24px;margin:0 0 6px}
+.meta{color:#666;font-size:13px;margin-bottom:24px}
+h2{font-size:17px;margin:32px 0 12px;padding-bottom:6px;
+   border-bottom:2px solid #e4e7ec}
+table{border-collapse:collapse;width:100%;background:#fff;
+      font-size:13px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-radius:6px;
+      overflow:hidden;margin-bottom:8px}
+th{background:#f0f2f5;text-align:left;padding:9px 10px;font-weight:600;
+   white-space:nowrap;cursor:pointer;user-select:none;border-bottom:1px solid #e4e7ec}
+th:hover{background:#e6e9ee}
+td{padding:8px 10px;border-bottom:1px solid #f0f0f0;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafbfc}
+.up{color:#d93025;font-weight:600}
+.dn{color:#1e8e3e;font-weight:600}
+.mut{color:#999}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;
+     margin-right:3px;background:#eef2f7;color:#445}
+.warn{background:#fef7e0;color:#a06a00}
+.bad{background:#fce8e6;color:#c5221f}
+.good{background:#e6f4ea;color:#137333}
+.note{font-size:12px;color:#666;margin:4px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:8px}
+.card{background:#fff;padding:14px 16px;border-radius:6px;
+      box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card .k{font-size:12px;color:#888}
+.card .v{font-size:20px;font-weight:600;margin-top:2px}
+</style></head><body><div class='wrap'>
+<h1>美股量化看板</h1>
+<div class='meta'>生成时间 2026-11-15 12:44 · 标的 21 个 · 数据源 富途(实时/延时) + CBOE(延迟15分) + 本地DB</div>
+<div class='grid'>
+<div class='card'><div class='k'>SPY</div><div class='v'>754.37</div><div class='dn' style='font-size:13px'>-0.36% <span class='mut'>(收盘)</span></div></div>
+<div class='card'><div class='k'>QQQ</div><div class='v'>679.89</div><div class='dn' style='font-size:13px'>-1.20% <span class='mut'>(收盘)</span></div></div>
+<div class='card'><div class='k'>SMH</div><div class='v'>486.75</div><div class='dn' style='font-size:13px'>-2.99% <span class='mut'>(收盘)</span></div></div>
+<div class='card'><div class='k'>SOXX</div><div class='v'>149.30</div><div class='dn' style='font-size:13px'>-3.67% <span class='mut'>(收盘)</span></div></div>
+</div>
+<h2>一、六类指标总表（点击表头排序）</h2>
+<div class='note'>评分 = 趋势(+2) + RSI(±1)；红色=上涨/超买，绿色=下跌/超卖</div>
+<table><thead><tr><th>标的</th><th>分组</th><th>现价</th><th>涨跌%</th><th>ADX</th><th>RSI14</th><th>Z20</th><th>ATR%</th><th>RV20</th><th>PCT252</th><th>量比</th><th>评分</th><th>提示</th></tr></thead><tbody>
+<tr><td><b>SPY</b></td><td class='mut'>核心</td><td data-v='754.3699951171875'>754.37</td><td data-v='-0.36' class='dn'>-0.36</td><td data-v='22.960809783243924'>23</td><td data-v='45.15248019021695'><span class=''>45.2</span></td><td data-v='-0.41853860489766775'>-0.42</td><td data-v='1.6923308162149424'>1.69</td><td data-v='22.294689373307996'>22.3</td><td data-v='0'>0</td><td data-v='0.8182367963801773'>0.82</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span></td></tr>
+<tr><td><b>QQQ</b></td><td class='mut'>核心</td><td data-v='679.8900146484375'>679.89</td><td data-v='-1.20' class='dn'>-1.20</td><td data-v='43.1366915276273'>43</td><td data-v='40.85686246129814'><span class=''>40.9</span></td><td data-v='-0.6935965740169291'>-0.69</td><td data-v='2.736997517647464'>2.74</td><td data-v='35.91637293382925'>35.9</td><td data-v='0'>0</td><td data-v='0.8472660904239685'>0.85</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span><span class='tag'>强趋势(43)</span></td></tr>
+<tr><td><b>SMH</b></td><td class='mut'>核心</td><td data-v='486.75'>486.75</td><td data-v='-2.99' class='dn'>-2.99</td><td data-v='43.37221472663354'>43</td><td data-v='39.173670941930006'><span class=''>39.2</span></td><td data-v='-0.9327878392216878'>-0.93</td><td data-v='5.595274907108693'>5.60</td><td data-v='67.43236534795915'>67.4</td><td data-v='0'>0</td><td data-v='1.0546955351861167'>1.05</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span><span class='tag'>强趋势(43)</span></td></tr>
+<tr><td><b>SOXX</b></td><td class='mut'>核心</td><td data-v='149.3000030517578'>149.30</td><td data-v='-3.67' class='dn'>-3.67</td><td data-v='41.959102650545844'>42</td><td data-v='41.83062898023428'><span class=''>41.8</span></td><td data-v='-0.6550646003024786'>-0.66</td><td data-v='6.456002134565988'>6.46</td><td data-v='78.69878209567925'>78.7</td><td data-v='0'>0</td><td data-v='1.209123304205559'>1.21</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span><span class='tag'>强趋势(42)</span></td></tr>
+<tr><td><b>VIX</b></td><td class='mut'>波动率</td><td data-v='19.299999237060547'>19.30</td><td data-v='3.21' class='up'>+3.21</td><td data-v='41.426436461794175'>41</td><td data-v='51.32537124962622'><span class=''>51.3</span></td><td data-v='-0.02793248505298721'>-0.03</td><td data-v='19.367136898478197'>19.37</td><td data-v='252.23455346849266'>252.2</td><td data-v='75.39682539682539'>75</td><td data-v='0'>0.00</td><td data-v='1' class='up'>+1</td><td><span class='tag'>破MA20</span><span class='tag'>强趋势(41)</span></td></tr>
+<tr><td><b>VXX</b></td><td class='mut'>波动率</td><td data-v='18.729999542236328'>18.73</td><td data-v='2.29' class='up'>+2.29</td><td data-v='39.3769037613107'>39</td><td data-v='51.35309282309798'><span class=''>51.4</span></td><td data-v='0.06418774029594389'>+0.06</td><td data-v='8.638548885749625'>8.64</td><td data-v='127.51139111994615'>127.5</td><td data-v='0'>0</td><td data-v='0.5459134541512707'>0.55</td><td data-v='2' class='up'>+2</td><td><span class='tag'>强趋势(39)</span></td></tr>
+<tr><td><b>SVIX</b></td><td class='mut'>波动率</td><td data-v='23.25'>23.25</td><td data-v='-2.23' class='dn'>-2.23</td><td data-v='47.67306723903948'>48</td><td data-v='40.98438330036319'><span class=''>41.0</span></td><td data-v='-0.8837148186493757'>-0.88</td><td data-v='9.378494754914314'>9.38</td><td data-v='150.9588529425541'>151.0</td><td data-v='0'>0</td><td data-v='0.8171258530867791'>0.82</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span><span class='tag'>强趋势(48)</span></td></tr>
+<tr><td><b>UVXY</b></td><td class='mut'>波动率</td><td data-v='17.989999771118164'>17.99</td><td data-v='3.69' class='up'>+3.69</td><td data-v='37.116217744099934'>37</td><td data-v='49.783361391247205'><span class=''>49.8</span></td><td data-v='-0.2105192020240221'>-0.21</td><td data-v='13.364566969074248'>13.36</td><td data-v='187.62077611369986'>187.6</td><td data-v='0'>0</td><td data-v='0.7707545287215913'>0.77</td><td data-v='1' class='up'>+1</td><td><span class='tag'>破MA20</span><span class='tag'>强趋势(37)</span></td></tr>
+<tr><td><b>XLK</b></td><td class='mut'>行业</td><td data-v='170.27999877929688'>170.28</td><td data-v='-2.01' class='dn'>-2.01</td><td data-v='43.75914388152068'>44</td><td data-v='36.143732162262054'><span class=''>36.1</span></td><td data-v='-0.9695985347323066'>-0.97</td><td data-v='3.6792338704257457'>3.68</td><td data-v='45.69313614203321'>45.7</td><td data-v='0'>0</td><td data-v='0.8008399519113942'>0.80</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span><span class='tag'>强趋势(44)</span></td></tr>
+<tr><td><b>XLF</b></td><td class='mut'>行业</td><td data-v='58.68000030517578'>58.68</td><td data-v='0.81' class='up'>+0.81</td><td data-v='61.92345067005721'>62</td><td data-v='64.0591801635963'><span class=''>64.1</span></td><td data-v='1.3864314228821608'>+1.39</td><td data-v='1.7236342114337462'>1.72</td><td data-v='21.61195947455009'>21.6</td><td data-v='0'>0</td><td data-v='0.9090260162162047'>0.91</td><td data-v='2' class='up'>+2</td><td><span class='tag'>强趋势(62)</span></td></tr>
+<tr><td><b>XLE</b></td><td class='mut'>行业</td><td data-v='64.95999908447266'>64.96</td><td data-v='0.98' class='up'>+0.98</td><td data-v='37.89106324347515'>38</td><td data-v='34.379166755795126'><span class=''>34.4</span></td><td data-v='-0.41579539085902373'>-0.42</td><td data-v='2.632388209746407'>2.63</td><td data-v='30.86893293594773'>30.9</td><td data-v='0'>0</td><td data-v='0.5108464758415187'>0.51</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span><span class='tag'>强趋势(38)</span></td></tr>
+<tr><td><b>XLV</b></td><td class='mut'>行业</td><td data-v='188.85000610351562'>188.85</td><td data-v='0.54' class='up'>+0.54</td><td data-v='63.78800884806684'>64</td><td data-v='70.42255722536125'><span class='bad'>70.4</span></td><td data-v='1.2239205001799167'>+1.22</td><td data-v='1.956957092256532'>1.96</td><td data-v='20.855775775683952'>20.9</td><td data-v='0'>0</td><td data-v='0.5268287128967853'>0.53</td><td data-v='1' class='up'>+1</td><td><span class='tag'>RSI超买</span><span class='tag'>强趋势(64)</span></td></tr>
+<tr><td><b>XLI</b></td><td class='mut'>行业</td><td data-v='168.77999877929688'>168.78</td><td data-v='-0.39' class='dn'>-0.39</td><td data-v='14.830692240396237'>15</td><td data-v='53.06602039677941'><span class=''>53.1</span></td><td data-v='0.3976478019642912'>+0.40</td><td data-v='2.003031532635374'>2.00</td><td data-v='25.291510087448625'>25.3</td><td data-v='0'>0</td><td data-v='0.7764384599055657'>0.78</td><td data-v='1' class='up'>+1</td><td><span class='tag'>破MA50</span></td></tr>
+<tr><td><b>XLY</b></td><td class='mut'>行业</td><td data-v='119.9800033569336'>119.98</td><td data-v='-0.40' class='dn'>-0.40</td><td data-v='42.034545649907315'>42</td><td data-v='63.684217442918246'><span class=''>63.7</span></td><td data-v='0.9612629456074142'>+0.96</td><td data-v='2.130712256456731'>2.13</td><td data-v='27.136475303393876'>27.1</td><td data-v='0'>0</td><td data-v='0.6900536938531812'>0.69</td><td data-v='2' class='up'>+2</td><td><span class='tag'>强趋势(42)</span></td></tr>
+<tr><td><b>NVDA</b></td><td class='mut'>龙头</td><td data-v='162.85000610351562'>162.85</td><td data-v='-2.01' class='dn'>-2.01</td><td data-v='61.77627770611237'>62</td><td data-v='19.11679172787325'><span class='good'>19.1</span></td><td data-v='-1.8031646911731722'>-1.80</td><td data-v='6.7577512624323415'>6.76</td><td data-v='54.010821805589025'>54.0</td><td data-v='0'>0</td><td data-v='1.7428846801210909'>1.74</td><td data-v='1' class='up'>+1</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span><span class='tag'>RSI超卖</span><span class='tag'>强趋势(62)</span></td></tr>
+<tr><td><b>AAPL</b></td><td class='mut'>龙头</td><td data-v='356.2699890136719'>356.27</td><td data-v='0.39' class='up'>+0.39</td><td data-v='16.733816697008397'>17</td><td data-v='58.45878417665261'><span class=''>58.5</span></td><td data-v='1.696841667179987'>+1.70</td><td data-v='2.6540867673599484'>2.65</td><td data-v='27.53194772175041'>27.5</td><td data-v='0'>0</td><td data-v='0.8470525081760025'>0.85</td><td data-v='2' class='up'>+2</td><td></td></tr>
+<tr><td><b>MSFT</b></td><td class='mut'>龙头</td><td data-v='523.8800048828125'>523.88</td><td data-v='0.17' class='up'>+0.17</td><td data-v='20.878058073060583'>21</td><td data-v='46.901658428595965'><span class=''>46.9</span></td><td data-v='-0.548700518919741'>-0.55</td><td data-v='3.3506867611752122'>3.35</td><td data-v='36.50551847258397'>36.5</td><td data-v='0'>0</td><td data-v='0.9968663913420626'>1.00</td><td data-v='1' class='up'>+1</td><td><span class='tag'>破MA20</span></td></tr>
+<tr><td><b>TSLA</b></td><td class='mut'>龙头</td><td data-v='390.2200012207031'>390.22</td><td data-v='-1.82' class='dn'>-1.82</td><td data-v='15.57192519166472'>16</td><td data-v='49.529002269208036'><span class=''>49.5</span></td><td data-v='0.28798843480399816'>+0.29</td><td data-v='4.654518870977201'>4.65</td><td data-v='61.0347627598789'>61.0</td><td data-v='0'>0</td><td data-v='0.8184987349673934'>0.82</td><td data-v='2' class='up'>+2</td><td></td></tr>
+<tr><td><b>META</b></td><td class='mut'>龙头</td><td data-v='641.6900024414062'>641.69</td><td data-v='2.90' class='up'>+2.90</td><td data-v='40.85145251144316'>41</td><td data-v='53.30757706022977'><span class=''>53.3</span></td><td data-v='0.15642067923096964'>+0.16</td><td data-v='3.2661525795605773'>3.27</td><td data-v='41.41927041497313'>41.4</td><td data-v='0'>0</td><td data-v='0.6366804987635709'>0.64</td><td data-v='1' class='up'>+1</td><td><span class='tag'>破MA50</span><span class='tag'>强趋势(41)</span></td></tr>
+<tr><td><b>IWM</b></td><td class='mut'>指数</td><td data-v='277.5400085449219'>277.54</td><td data-v='-0.32' class='dn'>-0.32</td><td data-v='12.177083158698414'>12</td><td data-v='50.535767050876316'><span class=''>50.5</span></td><td data-v='-0.22055800805202927'>-0.22</td><td data-v='1.9680560554035762'>1.97</td><td data-v='25.125151068410233'>25.1</td><td data-v='0'>0</td><td data-v='0.75538656310487'>0.76</td><td data-v='0' class=''>+0</td><td><span class='tag'>破MA20</span><span class='tag'>破MA50</span></td></tr>
+<tr><td><b>DIA</b></td><td class='mut'>指数</td><td data-v='523.1500244140625'>523.15</td><td data-v='0.13' class='up'>+0.13</td><td data-v='19.708202178030454'>20</td><td data-v='50.13092862570213'><span class=''>50.1</span></td><td data-v='0.21761418685084266'>+0.22</td><td data-v='1.4554697800947782'>1.46</td><td data-v='20.737835932752173'>20.7</td><td data-v='0'>0</td><td data-v='0.6944574465155979'>0.69</td><td data-v='2' class='up'>+2</td><td></td></tr>
+</tbody></table>
+<h2>二、GEX 结构（SPY，来自本地DB）</h2>
+<table><thead><tr><th>到期</th><th>DTE</th><th>总GEX(M)</th><th>Flip</th><th>Call墙</th><th>Put墙</th><th>最大负gamma</th><th>体制</th></tr></thead><tbody>
+<tr><td>2026-11-13</td><td>0</td><td data-v='-1641.0'>-1,641</td><td>—</td><td>765.0</td><td>754.0</td><td>760.0 (-826M)</td><td><span class='tag bad'>负GEX</span></td></tr>
+<tr><td>2026-11-16</td><td>3</td><td data-v='-322.3'>-322</td><td>—</td><td>770.0</td><td>753.0</td><td>763.0 (-414M)</td><td><span class='tag bad'>负GEX</span></td></tr>
+<tr><td>2026-11-17</td><td>4</td><td data-v='54.5'>+54</td><td>770.0</td><td>765.0</td><td>753.0</td><td>750.0 (-21M)</td><td><span class='tag good'>正GEX</span></td></tr>
+<tr><td>2026-11-18</td><td>5</td><td data-v='9.4'>+9</td><td>778.0</td><td>764.0</td><td>758.0</td><td>740.0 (-51M)</td><td><span class='tag good'>正GEX</span></td></tr>
+<tr><td>2026-11-19</td><td>6</td><td data-v='59.2'>+59</td><td>769.0</td><td>761.0</td><td>750.0</td><td>755.0 (-12M)</td><td><span class='tag good'>正GEX</span></td></tr>
+<tr><td>2026-11-20</td><td>7</td><td data-v='-3485.8'>-3,486</td><td>—</td><td>775.0</td><td>749.0</td><td>750.0 (-456M)</td><td><span class='tag bad'>负GEX</span></td></tr>
+<tr><td>2026-11-23</td><td>10</td><td data-v='-0.2'>-0</td><td>—</td><td>771.0</td><td>755.0</td><td>735.0 (-10M)</td><td><span class='tag bad'>负GEX</span></td></tr>
+<tr><td>2026-11-24</td><td>11</td><td data-v='11.4'>+11</td><td>784.0</td><td>770.0</td><td>750.0</td><td>740.0 (-10M)</td><td><span class='tag good'>正GEX</span></td></tr>
+</tbody></table>
+<h2>三、VIX 期货期限结构</h2>
+<table><thead><tr><th>合约</th><th>价格</th><th>相对近月%</th><th>结构</th></tr></thead><tbody>
+<tr><td>VIX9D (9日)</td><td data-v='17.81999969482422'>17.82</td><td>+0.00</td><td><span class="tag bad">backwardation</span></td></tr>
+<tr><td>VIX (30日)</td><td data-v='19.299999237060547'>19.30</td><td>+8.31</td><td><span class="tag good">contango</span></td></tr>
+<tr><td>VIX3M (3月)</td><td data-v='20.6200008392334'>20.62</td><td>+15.71</td><td><span class="tag good">contango</span></td></tr>
+</tbody></table>
+<h2>四、今日关注</h2>
+<table><thead><tr><th>标的</th><th>分组</th><th>触发原因</th></tr></thead><tbody>
+<tr><td><b>XLV</b></td><td class='mut'>行业</td><td><span class='tag warn'>RSI超买</span></td></tr>
+<tr><td><b>NVDA</b></td><td class='mut'>龙头</td><td><span class='tag warn'>RSI超卖</span></td></tr>
+</tbody></table>
+<div class='note' style='margin-top:32px'>数据源：富途（实时/延时）· CBOE（延迟15分）· 本地DB<br>本报告仅用于研究，不构成投资建议。</div>
+<script>
+document.querySelectorAll('table').forEach(function(t){
+  var ths=t.querySelectorAll('th');
+  ths.forEach(function(th,i){
+    th.addEventListener('click',function(){
+      var rows=Array.from(t.querySelectorAll('tbody tr'));
+      var asc=th.dataset.asc!=='1'; th.dataset.asc=asc?'1':'0';
+      rows.sort(function(a,b){
+        var x=a.children[i].dataset.v, y=b.children[i].dataset.v;
+        if(x===undefined){x=a.children[i].innerText;y=b.children[i].innerText;}
+        var nx=parseFloat(x), ny=parseFloat(y);
+        if(!isNaN(nx)&&!isNaN(ny)) return asc?nx-ny:ny-nx;
+        return asc?String(x).localeCompare(String(y)):String(y).localeCompare(String(x));
+      });
+      rows.forEach(function(r){t.querySelector('tbody').appendChild(r)});
+    });
+  });
+});
+</script></body></html>
