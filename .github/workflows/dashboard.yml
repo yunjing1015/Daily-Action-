@@ -1,4 +1,4 @@
-name: daily-dashboard
+﻿name: daily-dashboard
 
 on:
   schedule:
@@ -9,6 +9,10 @@ on:
     - cron: '0 14 * * 1-5'      # 盘前
   workflow_dispatch:
     inputs:
+      intraday:
+        description: "盘中先跑 intraday 体检"
+        type: boolean
+        default: false
       skip_gex:
         description: '跳过 CBOE GEX 采集（更快）'
         type: boolean
@@ -39,6 +43,18 @@ jobs:
             python run/dashboard_cloud.py
           fi
 
+      - name: Scan candidates (full market)
+        run: python run/scanner.py
+        continue-on-error: true
+
+      - name: Strategy signals
+        run: python strategies/signals.py
+        continue-on-error: true
+
+      - name: Bear call spread signals
+        run: python strategies/bear_call.py
+        continue-on-error: true
+
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
@@ -50,3 +66,4 @@ jobs:
             git commit -m "dashboard: $(date -u +%Y-%m-%d)"
             git push
           fi
+

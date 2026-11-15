@@ -6,10 +6,7 @@ tmp/
 # 本地调试产物（GitHub 上的数据要保留，所以不忽略 data/ 和 reports/）
 *.log
 
-# Python ����
 __pycache__/
 *.pyc
-
-# ������־
 *.log
 

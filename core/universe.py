@@ -87,3 +87,46 @@ if __name__ == "__main__":
             print(f"  {s:6s} {d}")
         total += len(grp)
     print(f"\n合计 {total} 个标的")
+
+# ---------- 扫描池：全市场候选（流动性好的美股 + ETF） ----------
+# 选取标准：日均成交额 > $50M，有活跃期权
+SCAN_POOL = [
+    # 大盘 ETF
+    "SPY", "QQQ", "IWM", "DIA", "VOO", "IVV", "VTI",
+    # 行业 ETF
+    "XLK", "XLF", "XLE", "XLV", "XLI", "XLY", "XLP", "XLU", "XLB", "XLRE", "XLC",
+    "SMH", "SOXX", "XBI", "KRE", "XRT", "XHB", "GDX", "ITB", "TAN", "IBB",
+    # 杠杆 ETF
+    "TQQQ", "SQQQ", "SOXL", "SOXS", "SPXL", "SPXS", "UVXY", "SVIX", "VXX", "VIXY",
+    "TLT", "TBT", "HYG", "JNK", "FXI", "KWEB",
+    # 科技龙头
+    "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO", "ORCL",
+    "CRM", "ADBE", "NFLX", "AMD", "INTC", "QCOM", "TXN", "MU", "AMAT", "LRCX",
+    "KLAC", "ASML", "TSM", "ARM", "SMCI", "MRVL", "ON", "ADI",
+    # 软件/AI
+    "PLTR", "SNOW", "CRWD", "DDOG", "NET", "MDB", "PANW", "ZS", "OKTA", "AI",
+    "MU", "COIN", "HOOD", "SQ", "PYPL", "SHOP",
+    # 金融
+    "JPM", "BAC", "WFC", "C", "GS", "MS", "SCHW", "BLK", "V", "MA", "AXP",
+    "BRK-B", "USB", "PNC", "TFC",
+    # 医疗
+    "UNH", "JNJ", "LLY", "ABBV", "MRK", "PFE", "TMO", "ABT", "DHR", "BMY",
+    "AMGN", "GILD", "CVS", "CI", "ELV",
+    # 消费
+    "WMT", "COST", "HD", "LOW", "TGT", "NKE", "SBUX", "MCD", "KO", "PEP",
+    "PG", "CL", "MDLZ", "PM", "MO",
+    # 能源/工业/材料
+    "XOM", "CVX", "COP", "SLB", "OXY", "PSX", "VLO", "MPC",
+    "CAT", "DE", "BA", "GE", "HON", "LMT", "RTX", "UNP", "UPS", "FDX",
+    "LIN", "FCX", "NEM", "NUE", "DOW",
+    # 通信/公用
+    "T", "VZ", "TMUS", "CMCSA", "DIS", "NEE", "DUK", "SO", "AEP",
+    # 中概
+    "BABA", "JD", "PDD", "BIDU", "NIO", "XPEV", "LI", "TCOM",
+    # 其他热门
+    "GME", "AMC", "PLTR", "RIVN", "LCID", "F", "GM", "UBER", "LYFT",
+    "ABNB", "DASH", "RBLX", "U", "SNAP", "PINS", "SPOT", "ROKU",
+]
+
+# 去重
+SCAN_POOL = sorted(set(SCAN_POOL))

@@ -1,0 +1,3 @@
+strategy,symbol,action,score,reasons,vix,vix_pct,term,term_ratio,svix,svix_pct
+VIX均值回归,SVIX,BUY,5,VIX分位85%(高) · contango(0.94) · SVIX分位8%(低),19.3,85.0,contango,0.936,23.25,8.0
+超卖反弹,NVDA,观察反弹,3,RSI19 · 距52周低+0.0% · 量比1.7,,,,,162.85,0.0
