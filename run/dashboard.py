@@ -26,6 +26,7 @@ config.setup_path()
 import pandas as pd  # noqa: E402
 
 from indicators import calc  # noqa: E402
+from core import charts  # noqa: E402
 
 LOG = []
 
@@ -152,7 +153,7 @@ def cls(val, good_high=True, hi=70, lo=30):
     return ""
 
 
-def build(universe_list, snaps, inds, gex_rows, vix_curve):
+def build(universe_list, snaps, inds, gex_rows, vix_curve, price_hist=None):
     now = datetime.now()
     h = []
     h.append("<!DOCTYPE html><html><head><meta charset='utf-8'>")
@@ -175,6 +176,27 @@ def build(universe_list, snaps, inds, gex_rows, vix_curve):
                      f"<div class='v'>{sn['px']:.2f}</div>"
                      f"<div class='{c}' style='font-size:13px'>{chg:+.2f}% "
                      f"<span class='mut'>({sn['tag']})</span></div></div>")
+        h.append("</div>")
+
+    # ===== 走势图 =====
+    if price_hist:
+        h.append("<h2>价格走势（近 60 日）</h2>")
+        h.append("<div style='display:flex;gap:16px;flex-wrap:wrap'>")
+        for s in [x for x in ("SPY", "QQQ", "SMH", "SOXX",
+                              "NVDA", "VIX") if x in price_hist]:
+            data = price_hist[s][-60:]
+            if len(data) < 10:
+                continue
+            color = "#d93025" if s == "VIX" else "#0a58ca"
+            svg = charts.line_svg(
+                [dict(data=data, name=s, color=color)],
+                width=340, height=110, labels=None, fill=True)
+            chg = (data[-1] / data[0] - 1) * 100 if data[0] else 0
+            cc = "up" if chg > 0 else "dn"
+            h.append(f"<div class='card' style='flex:1;min-width:320px'>"
+                     f"<div style='display:flex;justify-content:space-between'>"
+                     f"<b>{s}</b><span class='{cc}'>{chg:+.1f}%</span></div>"
+                     f"{svg}</div>")
         h.append("</div>")
 
     # ===== 六类指标 =====
@@ -234,6 +256,15 @@ def build(universe_list, snaps, inds, gex_rows, vix_curve):
                      f"<td>{r['maxneg_k'] or '—'} ({r['maxneg_gex'] or 0:+.0f}M)</td>"
                      f"<td>{reg}</td></tr>")
         h.append("</tbody></table>")
+        # GEX 柱状图
+        if any(r["total_gex"] is not None for r in gex_rows):
+            h.append("<div class='card' style='margin-top:12px'>")
+            h.append("<div style='font-size:12px;margin-bottom:6px'>"
+                     "各到期总 GEX（绿=正/波动收敛，红=负/波动放大）</div>")
+            h.append(charts.bar_svg(
+                [dict(label=r["exp"][5:], value=r["total_gex"] or 0)
+                 for r in gex_rows], width=520, height=140))
+            h.append("</div>")
 
     # ===== VIX 曲线 =====
     if vix_curve:
@@ -248,6 +279,17 @@ def build(universe_list, snaps, inds, gex_rows, vix_curve):
                      f"<td>{rel:+.2f}</td>"
                      f"<td>{'<span class=\"tag good\">contango</span>' if rel > 0 else '<span class=\"tag bad\">backwardation</span>'}</td></tr>")
         h.append("</tbody></table>")
+        # VIX 期限曲线
+        if len(vix_curve) >= 3:
+            h.append("<div class='card' style='margin-top:12px'>")
+            h.append("<div style='font-size:12px;margin-bottom:6px'>"
+                     "期限结构曲线（左下→右上 = contango，反之 backwardation）</div>")
+            h.append(charts.line_svg(
+                [dict(data=[c["px"] for c in vix_curve],
+                      name="VIX", color="#d93025")],
+                width=520, height=130,
+                labels=[c["name"] for c in vix_curve]))
+            h.append("</div>")
 
     # ===== 关注列表 =====
     h.append("<h2>四、今日关注</h2>")
@@ -365,3 +407,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

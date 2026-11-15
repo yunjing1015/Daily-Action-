@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 run/dashboard_cloud.py — 云端看板（GitHub Actions 用，不依赖富途）
 
@@ -198,9 +198,10 @@ def main():
     snaps = snaps_from_yahoo(syms)
     p(f"  ✅ {len(snaps)}/{len(syms)}")
 
-    # 3. 指标
+    # 3. 指标 + 价格历史
     p("\n③ 计算指标...")
     inds = {}
+    price_hist = {}
     for s in syms:
         try:
             df = load_df(s)
@@ -208,6 +209,7 @@ def main():
                 p(f"  {s:6s} 数据不足")
                 continue
             inds[s] = calc.latest_snapshot(df)
+            price_hist[s] = [float(x) for x in df["close"].tolist()]
             p(f"  {s:6s} RSI {inds[s]['rsi14'] or 0:5.1f}  "
               f"ADX {inds[s]['adx'] or 0:4.0f}  评分 {inds[s]['score']:+d}")
         except Exception as e:
@@ -227,7 +229,7 @@ def main():
     gex_rows = read_gex_rows("SPY")
 
     # 6. 生成
-    html = dash.build(syms, snaps, inds, gex_rows, vix_curve)
+    html = dash.build(syms, snaps, inds, gex_rows, vix_curve, price_hist)
     stamp = datetime.now().strftime("%Y%m%d")
     out = os.path.join(config.REPORT_DIR, f"dashboard_{stamp}.html")
     with open(out, "w", encoding="utf-8") as f:
@@ -245,3 +247,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
